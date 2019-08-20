@@ -5,9 +5,10 @@ var ENTER_KEYCODE = 13;
 var blockSetup = document.querySelector('.setup');
 var setupOpen = document.querySelector('.setup-open');
 var setupClose = blockSetup.querySelector('.setup-close');
+var inputName = blockSetup.querySelector('.setup-user-name');
 
 var onPopupEscPress = function(evt) {
-  if (evt.keyCode === ESC_KEYCODE) {
+  if (evt.keyCode === ESC_KEYCODE && document.activeElement !== inputName) {
     closePopup();
   }
 };
@@ -34,14 +35,15 @@ changeFireballColor.addEventListener('click', function() {
 
 changeCoatColor.addEventListener('click', function() {
   changeCoatColor.style.fill = getRandomElement(wizards, 'coatColor');
-  var valueCoatColor = blockSetup.getElementsByName('coat-color');
-  valueCoatColor.property('value') = changeCoatColor.style.fill;
+  var valueCoatColor = document.getElementsByName('coat-color');
+  valueCoatColor[0].value = changeCoatColor.style.fill;
 
 })
 
 changeEyesColor.addEventListener('click', function() {
   changeEyesColor.style.fill = getRandomElement(wizards, 'eyesColor');
-
+  var valueEyesColor = document.getElementsByName('eyes-color');
+  valueEyesColor[0].value = changeEyesColor.style.fill;
 })
 
 setupOpen.addEventListener('click', function() {
@@ -59,9 +61,7 @@ setupClose.addEventListener('click', function() {
 });
 
 setupClose.addEventListener('keydown', function(evt) {
-  if (evt.keyCode === ENTER_KEYCODE) {
-    closePopup();
-  }
+  closePopup();
 })
 
 
