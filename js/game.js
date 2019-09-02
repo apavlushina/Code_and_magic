@@ -451,16 +451,16 @@ window.Game = (function () {
             }));
             return;
           }
-          message = 'Вы победили Газебо!\nУра!';
+          message = 'You defeated Gazebo!\nHurra!';
           break;
         case Verdict.FAIL:
-          message = 'Вы проиграли!';
+          message = 'You lost the game!';
           break;
         case Verdict.PAUSE:
-          message = 'Игра на паузе!\nНажмите Пробел, чтобы продолжить';
+          message = 'Game is stopped!\nPlease press Space to continue';
           break;
         case Verdict.INTRO:
-          message = 'Добро пожаловать!\nНажмите Пробел для начала игры';
+          message = 'You are welcome!\Press Space to start the game';
           break;
       }
 
